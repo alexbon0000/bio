@@ -30,13 +30,14 @@ export default function Home() {
           userVerification: 'required', // Требуем биометрию
         },
       };
-
+//@ts-ignore
       const credential = await navigator.credentials.create({ publicKey });
       setMessage('Биометрия зарегистрирована! Пинкод сохранен.');
 
       // Сохраняем пинкод в localStorage (для примера, в реальном приложении используйте шифрование)
       localStorage.setItem('pincode', '1234'); // Пример пинкода
     } catch (error) {
+      //@ts-ignore
       setMessage(`Ошибка регистрации: ${error.message}`);
     }
   }
@@ -49,7 +50,7 @@ export default function Home() {
         allowCredentials: [], // Пустой список, так как проверяем локально
         userVerification: 'required',
       };
-
+//@ts-ignore
       await navigator.credentials.get({ publicKey });
       const storedPin = localStorage.getItem('pincode');
 
@@ -60,6 +61,7 @@ export default function Home() {
         setMessage('Пинкод не найден. Сначала зарегистрируйтесь.');
       }
     } catch (error) {
+      //@ts-ignore
       setMessage(`Ошибка аутентификации: ${error.message}`);
     }
   }
