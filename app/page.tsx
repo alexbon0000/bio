@@ -31,7 +31,7 @@ export default function Home() {
         },
       };
 //@ts-ignore
-      const credential = await navigator.credentials.create({ publicKey });
+      await navigator.credentials.create({ publicKey });
       setMessage('Биометрия зарегистрирована! Пинкод сохранен.');
 
       // Сохраняем пинкод в localStorage (для примера, в реальном приложении используйте шифрование)
